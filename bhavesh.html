@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samruddhi Turns 18 🤎</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f5efe6;
+    color: #4b3832;
+    overflow: hidden;
+}
+
+/* LOADING SCREEN */
+#loading {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #f5efe6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#loading button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #4b3832;
+    color: white;
+    font-size: 16px;
+}
+
+/* MAIN PAGE */
+#main {
+    display: none;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.container {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 30px 20px;
+    background: #fffaf3;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    animation: scaleIn 0.8s ease forwards;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+p {
+    font-size: 15px;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+}
+
+p:nth-child(n) {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 18px;
+    animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0.9; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Fire pop */
+.fire {
+    position: fixed;
+    bottom: 0;
+    font-size: 20px;
+    animation: firePop 1s ease-out forwards;
+}
+
+@keyframes firePop {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<div id="loading">
+    <h2>Loading Samruddhi’s 18th Era 🤎</h2>
+    <button onclick="startSite()">Click to Continue</button>
+</div>
+
+<div id="main">
+    <div class="container">
+        <h1>Happiest 18th Birthday, Samruddhi 🤎</h1>
+
+        <p>I know this is a bit more than expected… but for you, this is my little sa present.</p>
+
+        <p>It’s your 18th birthday — ab ande ke bahar nikal gayi ho tum 😂  
+        And this is honestly one of the most important phases of your life.</p>
+
+        <p>Now things will slowly start changing. Professional life will begin.
+        Maybe fewer friends, more responsibilities.
+        New experiences, new lessons.
+        And maybe someday, a lifetime partner who understands you,
+        makes you laugh, keeps you happy,
+        cares for you and stands with you in every phase of life.</p>
+
+        <p>I’m really happy that by God’s grace, I met you.
+        We met accidentally, started talking randomly,
+        and suddenly became friends so instantly.
+        And I’m so grateful for that.</p>
+
+        <p>You are truly one of the best people I have ever met.
+        You’re not just amazing — you’re inspiring, kind,
+        and very, very special to me.</p>
+
+        <p>And I know whenever life gets confusing,
+        you’ll probably search for answers in a Taylor Swift bridge first.
+        Don’t worry — I’ll stay for every era.
+        Even the dramatic ones.</p>
+
+        <p>Happiest birthday to you, Samm 🤎  
+        May this new chapter treat you gently and beautifully.</p>
+
+        <div class="footer">18 looks soft on you already.</div>
+    </div>
+</div>
+
+<!-- Hidden YouTube player -->
+<iframe id="musicPlayer"
+src=""
+style="display:none;"
+allow="autoplay">
+</iframe>
+
+<script>
+function startSite() {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("main").style.display = "block";
+    document.body.style.overflow = "auto";
+
+    // Start music AFTER click (mobile safe)
+    document.getElementById("musicPlayer").src =
+    "https://www.youtube.com/embed/OPugs48z2GU?autoplay=1&loop=1&playlist=OPugs48z2GU";
+
+    startHearts();
+    startFire();
+}
+
+// Hearts animation
+function startHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "🤎";
+        heart.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+    }, 600);
+}
+
+// Fire animation
+function startFire() {
+    setInterval(() => {
+        const fire = document.createElement("div");
+        fire.className = "fire";
+        fire.innerHTML = "🎆";
+        fire.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(fire);
+        setTimeout(() => fire.remove(), 1000);
+    }, 1200);
+}
+</script>
+
+</body>
+</html>
