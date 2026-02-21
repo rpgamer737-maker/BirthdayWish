@@ -42,6 +42,7 @@ body {
     background: #4b3832;
     color: white;
     font-size: 16px;
+    cursor: pointer;
 }
 
 /* MAIN PAGE */
@@ -78,9 +79,6 @@ p {
     margin-bottom: 15px;
     opacity: 0;
     animation: fadeUp 1s ease forwards;
-}
-
-p:nth-child(n) {
     animation-delay: 0.3s;
 }
 
@@ -126,6 +124,11 @@ p:nth-child(n) {
 
 <body>
 
+<!-- AUDIO (Mobile Safe) -->
+<audio id="bgMusic" loop preload="auto">
+    <source src="‪https://www.youtube.com/watch?v=XU59Y6ya99U&list=RDXU59Y6ya99U&start_radio=1" type="audio/mpeg">
+</audio>
+
 <div id="loading">
     <h2>Loading Samruddhi’s 18th Era 🤎</h2>
     <button onclick="startSite()">Click to Continue</button>
@@ -168,28 +171,20 @@ p:nth-child(n) {
     </div>
 </div>
 
-<!-- Hidden YouTube player -->
-<iframe id="musicPlayer"
-src=""
-style="display:none;"
-allow="autoplay">
-</iframe>
-
 <script>
 function startSite() {
     document.getElementById("loading").style.display = "none";
     document.getElementById("main").style.display = "block";
     document.body.style.overflow = "auto";
 
-    // Start music AFTER click (mobile safe)
-    document.getElementById("musicPlayer").src =
-    "https://www.youtube.com/embed/OPugs48z2GU?autoplay=1&loop=1&playlist=OPugs48z2GU";
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.6;
+    music.play();
 
     startHearts();
     startFire();
 }
 
-// Hearts animation
 function startHearts() {
     setInterval(() => {
         const heart = document.createElement("div");
@@ -201,7 +196,6 @@ function startHearts() {
     }, 600);
 }
 
-// Fire animation
 function startFire() {
     setInterval(() => {
         const fire = document.createElement("div");
